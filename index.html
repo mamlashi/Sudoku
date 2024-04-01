@@ -16,11 +16,19 @@
   background-color: #000000;
   color: white;
 }
-.butt:active {
-  background-color: #000;  //#3e8e41;
-  box-shadow: 0 5px #666;
+ butt:focus{ background-color:  #3e8e41;}  
+
+.butt:active { transform: scale(0.98);
+  top:1px;
+  left:2px;
+  background-color: #3e8e41;
+ // box-shadow: inset 0px 0px 5px #c1c1c1;
+// box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); 
+//  box-shadow: 0 5px #666;
   transform: translateY(4px);
+  transition:  8s;
 }
+
 .divt{
   position: absolute;
   top:120;
@@ -121,13 +129,12 @@
        <p id="2" onclick="filit(2)">Medium</p>
        <p id="3" onclick="filit(3)">Hard</p>  
        <p id="4" onclick="filit(4)">Very Hard</p>   </div></td><td>&nbsp;</td><td >&nbsp;</td><td>&nbsp;</td><td>__________&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;Help</td></b></tr></table></tr>
-<tr><td ><button class="butt" id="button" onclick="numchoice(1)">1</button></td><td><button class="butt" id="b2" onclick="numchoice(2)">2</button></td><td><button  class="butt"id="b3" onclick="numchoice(3)">3</button></td><td><button class="butt" id="b4" onclick="numchoice(4)">4</button></td><td><button class="butt" id="b5" onclick="numchoice(5)">5</button></td><td><button class="butt" id="b6" onclick="numchoice(6)"><b>6</b></button></td><td><button class="butt" id="b7" onclick="numchoice(7)">7</button></td><td><button class="butt" id="b8" onclick="numchoice(8)">8</button></td><td><button class="butt" id="b9" onclick="numchoice(9)"><b>9</button></td><td><button class="butt" style="width:47;  font-size: 85%;" onclick="numchoice( 0)"><b>Erase</b></button></td></tr></table></div><table>
+<tr><td ><button class="butt" id="b1" onclick="numchoice(1)">1</button></td><td><button class="butt" id="b2" onclick="numchoice(2)">2</button></td><td><button  class="butt" id="b3" onclick="numchoice(3)">3</button></td><td><button class="butt" id="b4" onclick="numchoice(4)">4</button></td><td><button class="butt" id="b5" onclick="numchoice(5)">5</button></td><td><button class="butt" id="b6" onclick="numchoice(6)"><b>6</b></button></td><td><button class="butt" id="b7" onclick="numchoice(7)">7</button></td><td><button class="butt" id="b8" onclick="numchoice(8)">8</button></td><td><button class="butt" id="b9" onclick="numchoice(9)"><b>9</button></td><td><button class="butt" style="width:47;  font-size: 85%;" onclick="numchoice(0 )"><b>Erase</b></button></td></tr></table></div><table>
 
 
 <tr><td  class="tdm" onclick="numfunc(id);" id="00"></td><td class="tdm" onclick="numfunc(id);" id="10" ></td><td  class="tdd" onclick="numfunc(id);" onclick="numfunc(id);" id="20"></td><td  class="tdm" onclick="numfunc(id);" id="30"></td><td class="tdm" onclick="numfunc(id);" id="40" ></td><td  class="tdd" onclick="numfunc(id);" id="50"></td><td  class="tdm" onclick="numfunc(id);" id="60"></td><td class="tdm" onclick="numfunc(id);" id="70" ></td><td  class="tdm" onclick="numfunc(id);" id="80"></td></tr><tr><td  class="tdm" onclick="numfunc(id);" id="01"></td><td class="tdm" onclick="numfunc(id);" id="11" ></td><td  class="tdd" onclick="numfunc(id);" id="21"></td><td  class="tdm" onclick="numfunc(id);" id="31"></td><td class="tdm" onclick="numfunc(id);" id="41" ></td class="tdm" onclick="numfunc(id);"><td  class="tdd" onclick="numfunc(id);" id="51"></td><td  class="tdm" onclick="numfunc(id);" id="61"></td><td class="tdm" onclick="numfunc(id);" id="71" ></td><td  class="tdm" onclick="numfunc(id);" id="81"></td></tr> <tr class="trr" ><td  class="tdm" onclick="numfunc(id);" id="02"></td><td class="tdm" onclick="numfunc(id);" id="12" ></td><td  class="tdd" onclick="numfunc(id);" id="22"></td><td  class="tdm" onclick="numfunc(id);" id="32"></td><td class="tdm" onclick="numfunc(id);" id="42" ></td><td  class="tdd" onclick="numfunc(id);" id="52"></td><td  class="tdm" onclick="numfunc(id);" id="62"></td><td class="tdm" onclick="numfunc(id);" id="72" ></td><td  class="tdm" onclick="numfunc(id);" id="82"></td></tr> <tr><td  class="tdm" onclick="numfunc(id);" id="03"></td><td class="tdm" onclick="numfunc(id);" id="13" ></td><td  class="tdd" onclick="numfunc(id);" id="23"></td><td  class="tdm" onclick="numfunc(id);" id="33"></td><td class="tdm" onclick="numfunc(id);" id="43" ></td><td  class="tdd" onclick="numfunc(id);" id="53"></td><td  class="tdm" onclick="numfunc(id);" id="63"></td><td class="tdm" onclick="numfunc(id);" id="73" ></td><td  class="tdm" onclick="numfunc(id);" id="83"></td></tr> <tr><td  class="tdm" onclick="numfunc(id);" id="04"></td><td class="tdm" onclick="numfunc(id);" id="14" ></td><td  class="tdd" onclick="numfunc(id);" id="24"></td><td  class="tdm" onclick="numfunc(id);" id="34"></td><td class="tdm" onclick="numfunc(id);" id="44" ></td><td  class="tdd" onclick="numfunc(id);" id="54"></td><td  class="tdm" onclick="numfunc(id);" id="64"></td><td class="tdm" onclick="numfunc(id);" id="74" ></td><td  class="tdm" onclick="numfunc(id);" id="84"></td></tr> <tr class="trr"><td  class="tdm" onclick="numfunc(id);" id="05"></td><td class="tdm" onclick="numfunc(id);" id="15" ></td><td  class="tdd" onclick="numfunc(id);" id="25"></td><td  class="tdm" onclick="numfunc(id);" id="35"></td><td class="tdm" onclick="numfunc(id);" id="45" ></td><td  class="tdd" onclick="numfunc(id);" id="55"></td><td  class="tdm" onclick="numfunc(id);" id="65"></td><td class="tdm" onclick="numfunc(id);" id="75" ></td><td  class="tdm" onclick="numfunc(id);" id="85"></td></tr> <tr><td  class="tdm" onclick="numfunc(id);" id="06"></td><td class="tdm" onclick="numfunc(id);" id="16" ></td><td  class="tdd" onclick="numfunc(id);" id="26"></td><td  class="tdm" onclick="numfunc(id);" id="36"></td><td class="tdm" onclick="numfunc(id);" id="46" ></td><td  class="tdd" onclick="numfunc(id);" id="56"></td><td  class="tdm" onclick="numfunc(id);" id="66"></td><td class="tdm" onclick="numfunc(id);" id="76" ></td><td  class="tdm" onclick="numfunc(id);" id="86"></td></tr> <tr><td  class="tdm" onclick="numfunc(id);" id="07"></td><td class="tdm" onclick="numfunc(id);" id="17" ></td><td  class="tdd" onclick="numfunc(id);" id="27"></td><td  class="tdm" onclick="numfunc(id);" id="37"></td><td class="tdm" onclick="numfunc(id);" id="47" ></td><td  class="tdd" onclick="numfunc(id);" id="57"></td><td  class="tdm" onclick="numfunc(id);" id="67"></td><td class="tdm" onclick="numfunc(id);" id="77" ></td><td  class="tdm" onclick="numfunc(id);" id="87"></td></tr> <tr><td  class="tdm" onclick="numfunc(id);" id="08"></td><td class="tdm" onclick="numfunc(id);" id="18" ></td><td  class="tdd" onclick="numfunc(id);" id="28"></td><td  class="tdm" onclick="numfunc(id);" id="38"></td><td class="tdm" onclick="numfunc(id);" id="48" ></td><td  class="tdd" onclick="numfunc(id);" id="58"></td><td  class="tdm" onclick="numfunc(id);" id="68"></td><td class="tdm" onclick="numfunc(id);" id="78" ></td><td  class="tdm" onclick="numfunc(id);" id="88"></td></tr></table></div><table><tr><td>Time : </td><td><p id="tim"></p></td ><td></td></tr></table></div>
 <p id="demo3"></p>
 <p id="demo2"></p>
-
 
 <script>  
 const bask=[1,2,3,4,5,6,7,8,9];
@@ -140,13 +147,34 @@ var temp=[];
 var adad=0;  
 var total=0;
 var tt;
+
 var empty=[[],[],[],[],[],[],[],[],[]];
+/*
+const button = document.querySelector('.butt');
+
+button.addEventListener('click', () => {
+  button.classList.toggle('active');
+});
+
+
+const button = document.querySelector('.butt');
+
+button.addEventListener('click', function() {
+  console.log('Button clicked');
+});
+
+function clicked() { document.getElementById("demo").innerHTML ="clicked"; 
+  button.classList.toggle('active');
+}
+
+button.addEventListener('click',clicked);
+*/
 
 function myfunc(mid){
  document.getElementById("myDropdown1").display="none";
  var dim = [ matrix.length, matrix[0].length];
  if(mid==1){  for(i=0; i<9; i++){
- for(j=0; j<9; j++){  matrif[i][j]=[]; 
+ for(j=0; j<9; j++){  matrif[i][j]=[]; matrib[i][j]=[];
 }}     }  
 
  mystart();
@@ -238,8 +266,6 @@ function filit(num){  switch(num){  case 1:num1=60; break;
                                     case 3:num1=40; break;
                                     case 4:num1=30; break; } 
 
- document.getElementById("demo2").innerHTML =num1;  
-
 for(i=0; i<num1; i++){
     tr1=parseInt(Math.random()*10)%9;
  var   myi=myij[tr1]; 
@@ -249,12 +275,19 @@ var    myj=myij[tr2];
     var nu = matrif[myi][myj];   
     if(nu ==0){matrif[myi][myj]=matrix[myi][myj];
                matrib[myi][myj]=matrif[myi][myj];
-    total++;
+  total++;
     document.getElementById(myid).innerHTML +="<b>"+matrif[myi][myj]+"</b>";
 }}
 }
-function numchoice(n){
-  adad=n;
+var n1;
+function numchoice(myn){ 
+ 
+var  n=myn;
+  adad=n;   var bid='b'+n;  bid1='b'+n1;
+
+// document.getElementById("demo2").innerHTML +=n+"..."+n1+"..."+bid+"..."+bid1+"...<br>";
+  // document.getElementById(bid).style.backgroundColor="gray";  
+ //  document.getElementById(bid1).style.backgroundColor="red"; 
  if(n==0){ adad= "&#160;"; }
 for(i=0; i<9; i++){
 for(j=0; j<9; j++){ myid= i+""+j; var mycolor= document.getElementById(myid).style.backgroundColor; 
@@ -262,8 +295,9 @@ if(mycolor !="white"){ document.getElementById(myid).style.backgroundColor="whit
 if(adad==matrib[i][j]){
  document.getElementById(myid).style.backgroundColor="lightblue"; 
 }}
- }
-  mycolr="blue";
+ }   
+    mycolr="blue"; 
+  n1=n;
  }   
 
 function numfunc(id){
@@ -275,7 +309,8 @@ var myid=myi+""+myj;
 if(!adad || matrif[myi][myj]>0){
 alert("no");}
 else if(adad=="&#160;"){adad=""; document.getElementById(myid).innerHTML =adad.toString().fontcolor("white");  }
-else if(adad==matrix[myi][myj]){ document.getElementById(myid).innerHTML =adad.toString().fontcolor("blue") ; matrib[myi][myj]=adad; total++; if(total==81){alert("Great You Finished");}
+else if(adad==matrix[myi][myj]){ document.getElementById(myid).innerHTML =adad.toString().fontcolor("blue") ; matrib[myi][myj]=adad; total++; 
+if(total==81){alert("Great You Finished");}
 document.getElementById(myid).style.backgroundColor="lightblue"; 
   }
 else{  document.getElementById(myid).innerHTML =adad.toString().fontcolor("red");}
