@@ -221,7 +221,7 @@ tr1=parseInt(Math.random()*10)%9;  j=tr1; tr2=parseInt(Math.random()*10)%9; i=tr
 mid=i+""+j;
 }  matf[i][j]=matx[i][j];
    document.getElementById(mid).innerHTML =matf[i][j].toString().fontcolor("pink");
-   mytotal++; 
+   cnt++; 
  }
 
 function mysolve(){ for(i=0; i<9; i++){
@@ -297,7 +297,7 @@ if(mats[myi][myj]>0){ alert("It is not allowed");}
 else if(numb1==0){numb1=""; document.getElementById(myid).innerHTML =numb1.toString().fontcolor("white");  }  
 else if(numb1==matx[myi][myj]){cnt++; matf[myi][myj]=numb1;
  document.getElementById(myid).innerHTML =numb1.toString().fontcolor("blue") ; 
-if(cnt==81){alert("Great You Finished");}  
+if(cnt==81){alert("Great You Finished in: "+ttim+" Seconds");   clearInterval(tt);   }  
  document.getElementById(myid).style.backgroundColor="lightblue"; 
   }
 else{  document.getElementById(myid).innerHTML =numb1.toString().fontcolor("red");}
