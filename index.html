@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html><head><title>Sudoku</title>
+<style>
+.divmain{
+   position:absolute;
+   top: 100px;
+   left:350px;
+   width:450px;
+   height:615px;
+   border: 4px solid blue;
+}
+.divtop{
+   position:relative;
+   width:450px;
+   height: 80px;
+   background-color: #ddd;
+}
+.divtopl{
+   position:relative;
+   width:450px;
+   height: 20px;
+   background-color: #ddd;
+   text-align: right;
+}
+.divbottom {
+   position:relative;
+   width: 450px;
+   height: 480px;
+   border: 1px solid blue;
+   justify: right;
+}
+.timediv{   
+   position: relative;
+   width:450px;
+   height: 35px;
+   border: 2px solid blue;
+   background-color: #ddd;
+}
+.dropbtn {
+  background-color: #9ac;
+  color: white;
+  padding: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 60px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content p {background-color:  ; 
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content p:hover {background-color: lightblue;}
+.dropdown:hover .dropdown-content {  display: block;}
+.dropbtn1 {
+  background-color: #99c;
+  color: white;
+  padding: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dropdown1 {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content1 {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 60px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content1 p {background-color:  ; 
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content1 p:hover {background-color: lightblue;}
+.dropdown:hover .dropdown-content1 {  display: block;}
+.numbut{
+   width:35px;
+   height:35px;
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+   transition: .2s all
+}
+.pebut{
+ width:48px;
+ height:35px;
+ background-color:#eee;
+ transition: width 2s, height 2s;
+ box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+ border-collapse: collapse;
+ border: 1px solid black;
+}
+.table{
+  text-align:center;
+  border-collapse: collapse;
+  font-size: 20px;  
+}
+.tdc{
+  border-collapse: collapse;
+  width: 50px;
+  height:50px;
+  border: 1px solid black;}
+.tdc{ border-collapse: collapse;
+      border: 1px solid black;
+}
+.tdch{ border-collapse: collapse;
+    width:50px;
+    border-right: 3px solid blue; 
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left:1px solid black;
+}
+.tdcv{ border-collapse: collapse;
+    width:50px;
+    border-right: 1px solid black; 
+    border-top: 1px solid black;
+    border-bottom: 3px solid blue;
+    border-left:1px solid black;
+}
+.tdchv{ border-collapse: collapse;
+    width:50px;
+    height:50px;
+    border-right: 3px solid blue; 
+    border-top: 1px solid black;
+    border-bottom: 3px solid blue;
+    border-left:1px solid black;
+}
+.clos{
+    width:5px;
+    height:5px;
+    border: 3px solid blue; 
+}
+</style> 
+</head>
+<body><p id="demo"></p>
+<div class="divmain">
+<div class="divtopl"> <button class="clos1" onclick="closing()">x</button></div>
+<div class="divtop">
+<table>
+<tr><td>
+<div class="dropdown">
+  <button id="games"  class="dropbtn" onclick="clicking();" >Games</button>
+  <div id="myDropdown" class="dropdown-content"> 
+       <p id="1" onclick="mystart(60)">Easy</p>
+       <p id="2" onclick="mystart(50)">Medium</p>
+       <p id="3" onclick="mystart(40)">Hard</p>  
+       <p id="4" onclick="mystart(35)">Extreme</p></div></div>
+</td><td><div class="dropdown">
+<button id="options" class="dropbtn"  onclick="clicking();" >Options</button>
+  <div id="myDropdown" class="dropdown-content"> 
+       <p id="1" onclick="myhint()">Hint</p>
+       <p id="2" onclick="mysolve()">Solve</p>
+       <p id="3" onclick="filit(13)"></p>  
+       <p id="4" onclick="filit(14)"></p></div> </div>
+
+</td><td>&nbsp; </td><td>&nbsp;</td><td>&nbsp;</td><td><hr width="190px" color="lightgray" /></td><td>&nbsp;</td><td><div class="dropdown">
+ <button class="dropbtn"  >About</button><div id="myDropdown" class="dropdown-content"><p>This has been developed by Matt Amlashi. All rights reserved</p></div></div> </td></tr></table>
+
+<table><tr><td> <button id="but11" class="pebut" onclick="pausing(1);">pause</button> </td><td><button id="but1" class="numbut" onclick="numchoice(1)">1</button></td><td><button id="but2" class="numbut" onclick="numchoice(2)">2</button></td><td><button id="but3" class="numbut" onclick="numchoice(3)">3</button></td><td><button id="but4" class="numbut" onclick="numchoice(4)">4</button></td><td><button id="but5" class="numbut" onclick="numchoice(5)">5</button></td>
+<td><button id="but6" class="numbut" onclick="numchoice(6)">6</button></td><td><button id="but7" class="numbut" onclick="numchoice(7)">7</button></td><td><button id="but8" class="numbut" onclick="numchoice(8)">8</button></td><td><button id="but9" class="numbut" onclick="numchoice(9)">9</button></td><td><button id="but12" class="pebut" onclick="numchoice(0)">Erase</button> </td></tr></table></div>
+
+<div class="divbottom"><b><table class="table"><tr><td id="00" onclick="numfunc(00);" class="tdc"></td><td id="10" onclick="numfunc(10); "class="tdc"></td><td id="20" class="tdch" onclick="numfunc(20);" ></td><td id="30" class="tdc" onclick="numfunc(30);" ></td><td id="40" class="tdc" onclick="numfunc(40);" ></td><td id="50" class="tdch"  onclick="numfunc(50);"></td><td id="60" class="tdc"  onclick="numfunc(60);"></td><td id="70" class="tdc" onclick="numfunc(70);"></td><td id="80" class="tdc" onclick="numfunc(80);"></td></tr><tr><td id="01" class="tdc" onclick="numfunc(01);"></td><td id="11" class="tdc" onclick="numfunc(11);"></td><td id="21" class="tdch" onclick="numfunc(21);"></td><td id="31" class="tdc" onclick="numfunc(31);"></td><td id="41" class="tdc" onclick="numfunc(41);"></td><td id="51" class="tdch" onclick="numfunc(51);"></td><td id="61" class="tdc" onclick="numfunc(61);"></td><td id="71" class="tdc" onclick="numfunc(71);"></td><td id="81" class="tdc" onclick="numfunc(81);"></td></tr><tr><td id="02" class="tdcv" onclick="numfunc(02);"></td><td id="12" class="tdcv" onclick="numfunc(12);"></td><td id="22" class="tdchv" onclick="numfunc(22);"></td><td id="32" class="tdcv" onclick="numfunc(32);"></td><td id="42" class="tdcv" onclick="numfunc(42);"></td><td id="52" class="tdchv" onclick="numfunc(52);"></td><td id="62" class="tdcv" onclick="numfunc(62);"></td><td id="72" class="tdcv" onclick="numfunc(72);"></td><td id="82" class="tdcv" onclick="numfunc(82);"></td></tr><tr><td id="03" class="tdc" onclick="numfunc(03);"></td><td id="13" class="tdc" onclick="numfunc(13);"></td><td id="23" class="tdch" onclick="numfunc(23);"></td><td id="33" class="tdc" onclick="numfunc(33);"></td><td id="43" class="tdc" onclick="numfunc(43);"></td><td id="53" class="tdch" onclick="numfunc(53);"></td><td id="63" class="tdc" onclick="numfunc(63);"></td><td id="73" class="tdc" onclick="numfunc(73);"></td><td id="83" class="tdc" onclick="numfunc(83);"></td></tr><tr><td id="04" class="tdc" onclick="numfunc(04);"></td><td id="14" class="tdc" onclick="numfunc(14);"></td><td id="24" class="tdch" onclick="numfunc(24);"></td><td id="34" class="tdc" onclick="numfunc(34);"></td><td id="44" class="tdc" onclick="numfunc(44);"></td><td id="54" class="tdch" onclick="numfunc(54);"></td><td id="64" class="tdc" onclick="numfunc(64);"></td><td id="74" class="tdc" onclick="numfunc(74);"></td><td id="84" class="tdc" onclick="numfunc(84);"></td></tr><tr><td id="05" class="tdcv" onclick="numfunc(05);"></td><td id="15" class="tdcv" onclick="numfunc(15);"></td><td id="25" class="tdchv" onclick="numfunc(25);"></td><td id="35" class="tdcv" onclick="numfunc(35);"></td><td id="45" class="tdcv" onclick="numfunc(45);"></td><td id="55" class="tdchv" onclick="numfunc(55);"></td><td id="65" class="tdcv" onclick="numfunc(65);"></td><td id="75" class="tdcv" onclick="numfunc(75);"></td><td id="85" class="tdcv" onclick="numfunc(85);"></td></tr><tr><td id="06" class="tdc" onclick="numfunc(06);"></td><td id="16" class="tdc" onclick="numfunc(16);"></td><td id="26" class="tdch" onclick="numfunc(26);"></td><td id="36" class="tdc" onclick="numfunc(36);"></td><td id="46" class="tdc" onclick="numfunc(46);"></td><td id="56" class="tdch" onclick="numfunc(56);"></td><td id="66" class="tdc" onclick="numfunc(66);"></td><td id="76" class="tdc" onclick="numfunc(76);"></td><td id="86" class="tdc" onclick="numfunc(86);"></td></tr><tr><td id="07" class="tdc" onclick="numfunc(07);"></td><td id="17" class="tdc" onclick="numfunc(17);" ></td><td id="27" class="tdch" onclick="numfunc(27);"></td><td id="37" class="tdc" onclick="numfunc(37);"></td><td id="47" class="tdc" onclick="numfunc(47);"></td><td id="57" class="tdch" onclick="numfunc(57);"></td><td id="67" class="tdc" onclick="numfunc(67);"></td><td id="77" class="tdc" onclick="numfunc(77);"></td><td id="87" class="tdc" onclick="numfunc(87);"></td></tr><tr><td id="08" class="tdc" onclick="numfunc(08);"></td><td id="18" class="tdc" onclick="numfunc(18);"></td><td id="28" class="tdch" onclick="numfunc(28);"></td><td id="38" class="tdc" onclick="numfunc(38);"></td><td id="48" class="tdc" onclick="numfunc(48);"></td><td id="58" class="tdch" onclick="numfunc(58);"></td><td id="68" class="tdc" onclick="numfunc(68);"></td><td id="78" class="tdc" onclick="numfunc(78);"></td><td id="88" class="tdc" onclick="numfunc(88);"></td></tr> </table></b></div>
+
+<div class="timediv"><table><tr><td>Time : </td><td id="mtime"> </td></tr></table></div>
+</div>
+
+<p id="demo4"></p><p id="demo5"></p>
+<script>
+
+var tt; var ttim=0; var tt2;
+var mytime=-1;
+var nn=1;
+var n1=1;
+var ai=0;
+var aj=0;
+var numb1;
+var cnt=0;
+var rates=60;
+var start="false";
+var b11=1;
+var b12=1;
+var bask1=[]; 
+var matx=[[],[],[],[],[],[],[],[],[]];
+var mats=[[],[],[],[],[],[],[],[],[]];
+var matf=[[],[],[],[],[],[],[],[],[]];
+var matp=[[],[],[],[],[],[],[],[],[]];
+var choose=[[],[],[],[]];
+
+window.onclick = function(event) {
+   if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  } 
+}
+function closing(){ window.close(); }
+
+function myhint(){ var i=0; var j=0; var mid=i+""+j; if(start=="true"){
+ while(matf[i][j] !=""){
+  tr1=parseInt(Math.random()*10)%9;  j=tr1; tr2=parseInt(Math.random()*10)%9; i=tr2;  
+  mid=i+""+j;                                                                              
+ } matf[i][j]=matx[i][j];    cnt++;
+   document.getElementById(mid).innerHTML =matf[i][j].toString().fontcolor("purple");   
+}
+}
+function mysolve(){ for(i=0; i<9; i++){if(start=="true"){
+ for(j=0; j<9; j++){ var nid=i+""+j;
+  document.getElementById(nid).innerHTML =matx[i][j];
+ }}  
+  clearInterval(tt); clearInterval(tt2);  clearTimeout(tt); clearTimeout(tt2);}
+}
+function mystart(snum){  start="true";
+for(i=0; i<9; i++){
+for(j=0; j<9; j++){
+    matx[i][j]='';  matf[i][j]=''; mats[i][j]=''; cnt=0;
+var idm=i+""+j; 
+    document.getElementById(idm).innerHTML ="";  
+}
+}
+rates=snum;  
+cleaned();}
+
+function cleaned(){var bask=[1,2,3,4,5,6,7,8,9];  
+for(i=0; i<9; i++){
+for(j=0; j<9; j++){var ll=bask.length; var  tr=parseInt(Math.random()*10)%ll; 
+ bask1.push(bask[tr]); bask.splice(tr,1);}
+ matx[0][0]=matx[3][2]=matx[8][1]=matx[1][4]=matx[5][5]=matx[7][3]=matx[2][8]=matx[4][6]=matx[6][7]=bask1[0];
+ matx[1][0]=matx[4][1]=matx[8][2]=matx[0][4]=matx[3][5]=matx[6][3]=matx[2][7]=matx[5][6]=matx[7][8]=bask1[1];
+ matx[2][0]=matx[5][2]=matx[7][1]=matx[0][3]=matx[3][4]=matx[8][5]=matx[1][8]=matx[4][7]=matx[6][6]=bask1[2];
+ matx[3][0]=matx[2][2]=matx[6][1]=matx[1][3]=matx[4][4]=matx[7][5]=matx[0][6]=matx[5][7]=matx[8][8]=bask1[3];
+ matx[4][0]=matx[0][1]=matx[7][2]=matx[1][5]=matx[5][4]=matx[8][3]=matx[2][6]=matx[3][7]=matx[6][8]=bask1[4];
+ matx[5][0]=matx[1][1]=matx[6][2]=matx[2][5]=matx[3][3]=matx[7][4]=matx[0][7]=matx[4][8]=matx[8][6]=bask1[5];
+ matx[6][0]=matx[3][1]=matx[0][2]=matx[2][3]=matx[4][5]=matx[8][4]=matx[1][6]=matx[5][8]=matx[7][7]=bask1[6];
+ matx[7][0]=matx[5][1]=matx[1][2]=matx[2][4]=matx[4][3]=matx[6][5]=matx[0][8]=matx[3][6]=matx[8][7]=bask1[7];
+ matx[8][0]=matx[2][1]=matx[4][2]=matx[0][5]=matx[5][3]=matx[6][4]=matx[1][7]=matx[3][8]=matx[7][6]=bask1[8];
+}
+ 
+while(cnt<rates){   tr1=parseInt(Math.random()*10)%9;  j=tr1; tr2=parseInt(Math.random()*10)%9; i=tr2;  mats[i][j]=matx[i][j]; 
+    matf[i][j]=matx[i][j];  
+var idm=i+""+j; 
+var check= document.getElementById(idm).innerText;  
+if(matf[i][j]!=check){ document.getElementById(idm).innerHTML =matf[i][j]; cnt++;} 
+}  
+    ttim=0; mytime=-1;
+    pausing(-1);
+    numchoice(1);
+}  
+function numchoice(myn){  if(myn==0){
+ document.getElementById('but12').style.backgroundColor="gray"; }
+     n1=nn;
+     nn=myn;
+     numb1=nn;  var bid='but'+nn;  bid1='but'+n1;
+  if(nn ==0){ numb1= "&#160;"; } 
+for(i=0; i<9; i++){
+for(j=0; j<9; j++){ 
+  myid= i+""+j; var mycolor= document.getElementById(myid).style.backgroundColor; 
+  if(mycolor !="white"){ document.getElementById(myid).style.backgroundColor="white";   }
+  if(numb1==matf[i][j]){ document.getElementById(myid).style.backgroundColor="lightblue"; }   
+  mycolor="blue";  
+  document.getElementById(bid1).style.backgroundColor="#eee";
+  document.getElementById(bid).style.backgroundColor="gray"; 
+ }} 
+}
+
+
+
+function numfunc(id){  document.getElementById('but12').style.backgroundColor="#eee"; 
+var m=id;
+var myi=parseInt(m/10);
+var myj=m-myi*10;;
+var myid=myi+""+myj; 
+if(mats[myi][myj]>0){ alert("It is not allowed");}  
+else if(numb1==0){numb1=""; document.getElementById(myid).innerHTML =numb1.toString().fontcolor("white"); 
+}  
+else if(numb1==matx[myi][myj]){cnt++; matf[myi][myj]=numb1;
+ document.getElementById(myid).innerHTML =numb1.toString().fontcolor("blue") ; 
+if(cnt==81){alert("Great You Finished in:"+ (ttim-1)+" seconds");     clearInterval(tt);   }     
+ document.getElementById(myid).style.backgroundColor="lightblue"; 
+  }
+else{  document.getElementById(myid).innerHTML =numb1.toString().fontcolor("red");}
+}
+
+function pausing(tim){  if(start=="true"){b11=-1*b11;
+for(i=0; i<9; i++){
+for(j=0; j<9; j++){ var nid=i+""+j;
+ document.getElementById(nid).innerHTML =matf[i][j];
+if(b11<0){
+  document.getElementById('but11').style.backgroundColor="#eee";}else{
+  document.getElementById('but11').style.backgroundColor="gray"; }
+}}
+ mytime=-1*mytime; 
+  clearInterval(tt); 
+var ut=0;     
+if(mytime>0){clearTimeout(tt2);  
+  tt = setInterval(function() {
+  var now = new Date().getTime(); 
+  document.getElementById("mtime").innerHTML =ttim; 
+  ttim++; ut++;}, 1000);} 
+else{clearTimeout(tt);    tt2 = setInterval(function() {mypause(1);
+  var now2 = new Date().getTime(); 
+  }, 300);  }
+ if(mynumb1==81){  clearInterval(tt); clearInterval(tt2);  clearTimeout(tt); clearTimeout(tt2); } 
+ }}
+
+function mypause(mtim){tr1=parseInt(Math.random()*10)%9;  j=tr1; tr2=parseInt(Math.random()*10)%9; i=tr2;  var baskr=[1,2,3,4,5,6,7,8,9]; 
+var nid=i+""+j;  mtim1=-1*mtim;
+if(mtim1<0){ document.getElementById(nid).innerHTML =mtim; 
+} 
+return;}
+</script>
+</body>
+</html>
+
