@@ -1,0 +1,392 @@
+<html>
+<head>
+<style>
+.nums{
+position: absolute;
+top:70px;
+left:250;
+width: 458px;
+height:535px;
+border: 3px solid blue;
+background-color: #eee;
+}
+.div2{position: relative;
+top:580px;
+left:250px;
+width: 450px;
+height:180px;
+border: 1px solid green;
+}
+.btn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover, .btn:focus {
+  background-color: #2980B9;
+}
+
+.drpdwn {
+  position: relative;
+  display: inline-block;
+}
+.content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.content p {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.drpdwn p:hover {background-color: #ddd;}
+.show {display: block;}
+
+.mytd { background-color: lightgray;
+ width:35px;
+ height:35px;
+ justify-content: center;
+ box-shadow: 2px 2px 4px lightgray; 
+}
+ .mytd1{
+  background-color: gray;
+  box-shadow: 5px 5px 8px blue; 
+}
+ .mytd2{
+  width:35px;
+  height:35px; 
+  background-color: #eee;
+  color: #eee;
+  border: 0px solid white;
+}
+.tdl{
+ background-color: lightgray;
+ width:49px;
+ height:35px;
+ justify-content: center;
+box-shadow: 2px 2px 4px lightgray; 
+}
+.tdl1{ background-color: gray;
+  box-shadow: 5px 5px 8px blue;
+ }
+.jad{position : relative;
+width:450px;
+border: 2px solid blue;
+}
+.table{
+  text-align:center;
+  border-collapse: collapse;
+  font-size: 30px;  
+background-color: #fff;
+}
+.ttd{border-collapse: collapse;
+ width: 47px;
+ height:45px;
+ text-align: center;
+ border-bottom: 1px solid gray;
+ border-right: 1px solid gray;
+}
+.ttdh{border-collapse: collapse;
+ width: 47px;
+ height:45px;
+ text-align: center; 
+ border-right: 1px solid gray;
+ border-bottom: 3px solid blue;
+}
+.ttdv{border-collapse: collapse;
+ width: 47px;
+ height:46px;
+ border-bottom: 1px solid gray;
+ text-align: center;
+ border-right: 3px solid blue;
+}
+.ttdhv{border-collapse: collapse;
+ width: 47px;
+ height:45px;
+ text-align: center;
+ border-right: 3px solid blue;
+ border-bottom: 3px solid blue;
+}
+
+
+</style>
+<body >
+<table><tr><td>
+<div class="nums">
+<div class="drpdwn">
+  <button onclick="myFunction(1)" class="btn">Games</button>
+  <div id="mydrpdwn1" class="content">
+    <p onclick="itfunc(1);">Easy</p>
+    <p onclick="itfunc(2);">Medium</p>
+    <p onclick="itfunc(3);">Hard</p>
+    <p onclick="itfunc(4);">Extreme</p>
+  </div>
+</div>
+<div class="drpdwn">
+  <button onclick="myFunction(2)" class="btn">Options</button>
+  <div id="mydrpdwn2" class="content">
+    <p onclick="myhint();">Hint</p>
+    <p onclick="mysolve();">Solve</p>
+  </div>
+</div>
+<div class="drpdwn">
+  <button onclick="myFunction(3)" class="btn">Help</button>
+  <div id="mydrpdwn3" class="content">
+    <p >Designed and Developed By Matt Amlashi</p>   
+  </div>
+</div>
+<table><tr><td>
+<div class="mydiv">
+
+<table><tr><td><button id='pause' onclick="mypause();" class="tdl">Pause</button></td><td ><center><button id="1" class="mytd active" onclick="numfunc(1);">1</button></center></td><td ><center><button id="2" class="mytd" onclick="numfunc(2);">2</button></center></td><td ><center><button id="3" class="mytd" onclick="numfunc(3);">3</button></center></td><td ><center><button id="4" class="mytd" onclick="numfunc(4);">4</button></center></td><td ><center><button id="5" class="mytd" onclick="numfunc(5);">5</button></center></td><td ><center><button id="6" class="mytd" onclick="numfunc(6);">6</button></center></td><td ><center><button id="7" class="mytd" onclick="numfunc(7);">7</button></center></td><td ><center><button id="8" class="mytd" onclick="numfunc(8);">8</button></center></td><td ><center><button id="9" class="mytd" onclick="numfunc(9);">9</button></center></td><td><button id='112' onclick="numfunc(112);" class="tdl" > Erase</button></td></tr>
+</table></div>
+<div class="jad"><table class="table">
+<tr><td class="ttd" onclick="cellfunc('00');" id="00"></td><td class="ttd" onclick="cellfunc('01');" id="01"></td><td class="ttdv" onclick="cellfunc('02');" id="02"></td><td class="ttd" onclick="cellfunc('03');" id="03"></td><td class="ttd" onclick="cellfunc('04');" id="04"></td><td class="ttdv" onclick="cellfunc('05');" id="05"></td><td class="ttd" onclick="cellfunc('06');" id="06"></td><td class="ttd" onclick="cellfunc('07');" id="07"></td><td class="ttd" onclick="cellfunc('08');" id="08"></td></tr><tr><td class="ttd" onclick="cellfunc('10');" id="10"></td><td class="ttd" onclick="cellfunc('11');" id="11"></td><td class="ttdv" onclick="cellfunc('12');" id="12"></td><td class="ttd" onclick="cellfunc('13');" id="13"></td><td class="ttd" onclick="cellfunc('14');" id="14"></td><td class="ttdv" onclick="cellfunc('15');" id="15"></td><td class="ttd" onclick="cellfunc('16');" id="16"></td><td class="ttd" onclick="cellfunc('17');" id="17"></td><td class="ttd" onclick="cellfunc('18');" id="18"></td></tr><tr><td class="ttdh" onclick="cellfunc('20');" id="20"></td><td class="ttdh" onclick="cellfunc('21');" id="21"></td><td class="ttdhv" onclick="cellfunc('22');" id="22"></td><td class="ttdh" onclick="cellfunc('23');" id="23"></td><td class="ttdh" onclick="cellfunc('24');" id="24"></td><td class="ttdhv" onclick="cellfunc('25');" id="25"></td><td class="ttdh" onclick="cellfunc('26');" id="26"></td><td class="ttdh" onclick="cellfunc('27');" id="27"></td><td class="ttdh" onclick="cellfunc('28');" id="28"></td></tr><tr><td class="ttd" onclick="cellfunc('30');" id="30"></td><td class="ttd" onclick="cellfunc('31');" id="31"></td><td class="ttdv" onclick="cellfunc('32');" id="32"></td><td class="ttd" onclick="cellfunc('33');" id="33"></td><td class="ttd" onclick="cellfunc('34');" id="34"></td><td class="ttdv" onclick="cellfunc('35');" id="35"></td><td class="ttd" onclick="cellfunc('36');" id="36"></td><td class="ttd" onclick="cellfunc('37');" id="37"></td><td class="ttd" onclick="cellfunc('38');" id="38"></td></tr><tr><td class="ttd" onclick="cellfunc('40');" id="40"></td><td class="ttd" onclick="cellfunc('41');" id="41"></td><td class="ttdv" onclick="cellfunc('42');" id="42"></td><td class="ttd" onclick="cellfunc('43');" id="43"></td><td class="ttd" onclick="cellfunc('44');" id="44"></td><td class="ttdv" onclick="cellfunc('45');" id="45"></td><td class="ttd" onclick="cellfunc('46');" id="46"></td><td class="ttd" onclick="cellfunc('47');" id="47"></td><td class="ttd" onclick="cellfunc('48');" id="48"></td></tr><tr><td class="ttdh" onclick="cellfunc('50');" id="50"></td><td class="ttdh" onclick="cellfunc('51');" id="51"></td><td class="ttdhv" onclick="cellfunc('52');" id="52"></td><td class="ttdh" onclick="cellfunc('53');" id="53"></td><td class="ttdh" onclick="cellfunc('54');" id="54"></td><td class="ttdhv" onclick="cellfunc('55');" id="55"></td><td class="ttdh" onclick="cellfunc('56');" id="56"></td><td class="ttdh" onclick="cellfunc('57');" id="57"></td><td class="ttdh" onclick="cellfunc('58');" id="58"></td></tr><tr><td class="ttd" onclick="cellfunc('60');" id="60"></td><td class="ttd" onclick="cellfunc('61');" id="61"></td><td class="ttdv" onclick="cellfunc('62');" id="62"></td><td class="ttd" onclick="cellfunc('63');" id="63"></td><td class="ttd" onclick="cellfunc('64');" id="64"></td><td class="ttdv" onclick="cellfunc('65');" id="65"></td><td class="ttd" onclick="cellfunc('66');" id="66"></td><td class="ttd" onclick="cellfunc('67');" id="67"></td><td class="ttd" onclick="cellfunc('68');" id="68"></td></tr><tr><td class="ttd" onclick="cellfunc('70');" id="70"></td><td class="ttd" onclick="cellfunc('71');" id="71"></td><td class="ttdv" onclick="cellfunc('72');" id="72"></td><td class="ttd" onclick="cellfunc('73');" id="73"></td><td class="ttd" onclick="cellfunc('74');" id="74"></td><td class="ttdv" onclick="cellfunc('75');" id="75"></td><td class="ttd" onclick="cellfunc('76');" id="76"></td><td class="ttd" onclick="cellfunc('77');" id="77"></td><td class="ttd" onclick="cellfunc('78');" id="78"></td></tr><tr><td class="ttd" onclick="cellfunc('80');" id="80"></td><td class="ttd" onclick="cellfunc('81');" id="81"></td><td class="ttdv" onclick="cellfunc('82');" id="82"></td><td class="ttd" onclick="cellfunc('83');" id="83"></td><td class="ttd" onclick="cellfunc('84');" id="84"></td><td class="ttdv" onclick="cellfunc('85');" id="85"></td><td class="ttd" onclick="cellfunc('86');" id="86"></td><td class="ttd" onclick="cellfunc('87');" id="87"></td><td class="ttd" onclick="cellfunc('88');" id="88"></td></tr>
+</table></div></td></tr>
+</table>
+<table><tr><td><p>Time : </p></td><td><p id="mytime"> </p></td></tr>
+</table>
+
+
+
+<script>
+var mytime=-1;
+var start="false"; 
+var nido=12;
+var cell=[];
+var mynum=0;
+var levelc=0;
+let myb=[1,2,3,4,5,6,7,8,9]; 
+var matc=[]; 
+var matl=[[],[],[],[],[],[],[],[],[]];
+var matf=[[],[],[],[],[],[],[],[],[]];
+var matx=[[],[],[],[],[],[],[],[],[]];
+var matv=[[],[],[],[],[],[],[],[],[]];
+var init=0;
+var mincd;
+var minc=0+""+0;
+var pi; 
+var num;
+var levels=30;
+var timeout;
+var timer=1;
+var ttp;
+var matb=[[[],[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[],[]]];
+var oldn=4;
+var myd1='mydrpdwn3';
+
+function myFunction(nb) {var myd='mydrpdwn'+nb;
+    document.getElementById(myd).classList.toggle("show");
+  if(nb !=oldn){document.getElementById(myd1).classList.remove("show");}
+    oldn=nb;
+    myd1='mydrpdwn'+oldn;
+}
+window.onclick = function(event) {
+  if (!event.target.matches('.btn')) {
+    var dropdowns = document.getElementsByClassName("content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+function itfunc(nf){ start='false';
+    matc=[0,0,0,0,0,0,0,0,0];  levelc=0; levels=0;
+  switch(nf){
+   case 1:
+    levels=45;
+    break;
+   case 2:
+    levels=40;
+    break; 
+   case 3:
+    levels=35;
+    break;
+   case 4:
+    levels=30;
+    break;
+   }
+    clearTimeout(timeout);  mytime=0;  pausing(1); var nidc=0;
+  for(i=0; i<9; i++){ nidc++;
+
+ document.getElementById(nidc).classList.remove("mytd2");
+ document.getElementById(nidc).classList.add("mytd"); 
+
+
+  for(j=0; j<9; j++){   
+      matx[i][j]='';
+      matf[i][j]=0; 
+  var ind=i+""+j;
+      document.getElementById(ind).style.backgroundColor ="white";
+
+      document.getElementById(ind).innerHTML =" ";   }}
+      inita();
+} 
+
+function inita(){  mincd=[0,0]; pi=0;
+  for(i=0; i<9; i++){ 
+  for(j=0; j<9; j++){ for(k=0; k<9; k++){ matb[i][j][k]=myb[k];  } 
+  }}
+  while(pi<81){ cellfunc1(mincd);  } 
+    if(pi==81){ fill(); }
+}
+
+function cellfunc1(cell){ var id=cell;  var mincel=9;
+ var mi=cell[0]; var mj=cell[1]; var l=matb[mi][mj].length;     var gi=parseInt(mi/3)*3; var gj=parseInt(mj/3)*3; 
+ var tr=parseInt(Math.random()*10)%l; mynum=matb[mi][mj][tr];
+   for(i=gi; i<gi+3; i++){ 
+   for(j=gj; j<gj+3; j++){ 
+ var index = matb[i][j].indexOf(mynum);
+    if(index != -1 && l !=0){matb[i][j].splice(index, 1);  matb[i][j].flat(); matl[i][j]=matb[i][j].length;}
+   }}
+   for(j=0; j<9; j++){ 
+ var index = matb[mi][j].indexOf(mynum);  
+    if(index !=-1 && l !=0) {matb[mi][j].splice(index, 1); matb[mi][j].flat(); matl[mi][j]=matb[mi][j].length; }
+   } 
+   for(i=0; i<9; i++){
+  var index = matb[i][mj].indexOf(mynum);
+    if(index !=-1 && l !=0){matb[i][mj].splice(index, 1);  matb[i][mj].flat(); matl[i][mj]=matb[i][mj].length; }  
+   }
+    matb[mi][mj]=[mynum]; matl[mi][mj]=0;  
+   for(i=0; i<9; i++){ 
+   for(j=0; j<9; j++){
+    if(mincel>matl[i][j] && matl[i][j] !=0){mincel=matl[i][j]; mincd=i+""+j; }
+   }}   pi++; 
+   for(i=0; i<9; i++){ for(j=0; j<9; j++){ if(matb[i][j].length==0){  inita();}   }} 
+}
+
+function fill(){  
+  for(i=0; i<9; i++){ 
+  for(j=0; j<9; j++){   
+       matv[i][j]=matb[j][i];    
+  }
+  } 
+ if(start=='false'){ tamir();}
+ } 
+
+function tamir(){  init=0; start='true';
+ for(j=0; j<6; j++){
+ for(i=1; i<9; i=i+3){ 
+        var mnum=parseInt(matb[i][j]);   var vnum=parseInt(matv[i][j]);   
+        var unum=parseInt(matb[i-1][j]); var dnum=parseInt(matb[i+1][j]); var matd=[]; var matu=[];  
+        var lnum=parseInt(matv[i-1][j]); var rnum=parseInt(matv[i+1][j]); var matr=[]; var matl=[];
+    for(m=0; m<9; m++){matu.push(parseInt(matb[i-1][m]));
+                       matd.push(parseInt(matb[i+1][m]));
+                       matl.push(parseInt(matv[i-1][m]));
+                       matr.push(parseInt(matv[i+1][m]));
+    }
+   var indu=matu.indexOf(mnum); var indd=matd.indexOf(mnum); var indm=matd.indexOf(unum);
+   var indl=matl.indexOf(vnum); var indr=matr.indexOf(vnum); var indv=matr.indexOf(lnum);
+
+       if((unum == matb[i][indu]) && indu>j ){matf[i][indu]=parseInt(unum); init++; }
+       if((dnum == matb[i][indd]) && indd>j ){matf[i][indd]=parseInt(dnum); init++; } 
+       if((dnum == matb[i-1][indm]) && indm>j){matf[i-1][indm]=parseInt(dnum); init++;} 
+          
+       if((vnum == matv[i][indl]) && indl>j ){matf[indl][i]=parseInt(vnum); init++; }
+       if((rnum == matv[i][indr]) && indr>j ){matf[indr][i]=parseInt(rnum); init++; }
+       if((rnum == matv[i-1][indv]) && indv>j){matf[indv][i-1]=parseInt(rnum); init++; } 
+ }} 
+         mycnt=0;          ending(levels);
+}
+
+function ending(levels){   var lim=levels-init;
+  while(mycnt < lim){ 
+var ri=parseInt(Math.random()*10)%9;  var rj=parseInt(Math.random()*10)%9;   var tid=ri+""+rj;
+   if(matf[ri][rj]==0){
+    matf[ri][rj]=matb[ri][rj]; 
+    mycnt++;
+   }
+  }  
+ for(i=0; i<9; i++){ 
+ for(j=0; j<9; j++){ var idx=i+""+j;  
+    if(matf[i][j]>0){
+     matx[i][j]=matf[i][j] 
+     document.getElementById(idx).innerHTML +=matx[i][j];  matc[matf[i][j]-1]++; levelc++;
+ } }
+ } 
+numfunc(1);
+}
+
+function numfunc(num1){num=num1; if(matc[num-1]==9){alert('choose a number');}
+  nid=num; var element=document.getElementById(nid);  var element1=document.getElementById(nido);
+var chg='mytd1';
+     if(num ==112){chg='tdl1';}else{chg='tdl1';}
+ 
+    element.classList.add(chg);  
+    element1.classList.remove(chg); 
+    nido=nid;
+  for(i=0; i<9; i++){
+  for(j=0; j<9; j++){mid=i+""+j; 
+if(num == matx[i][j] ){
+  document.getElementById(mid).style.backgroundColor="lightblue";}else{
+  document.getElementById(mid).style.backgroundColor ="white";} 
+  }} 
+}
+function cellfunc(cel){var celid=cel; ci=cel[0]; cj=cel[1];   var  nnum=document.getElementById(celid).innerText;  
+if (num ==112 ){ if (matx[ci][cj]>0){
+ 
+    matc[nnum-1]--; levelc--;} document.getElementById(celid).innerHTML ='';  
+    document.getElementById(celid).style.backgroundColor ="white"; matx[ci][cj]=''; 
+ } 
+else if (matf[ci][cj]>0){alert('no');}
+else if (num==matb[ci][cj] && num<10 && num !=nnum){ 
+   document.getElementById(celid).innerHTML =num; 
+   document.getElementById(celid).style.color="blue";
+   document.getElementById(celid).style.backgroundColor ="lightblue";
+   matx[ci][cj]=num; 
+  if(matc[num-1]<9){ matc[num-1]++; if(matc[num-1]==9){ document.getElementById(num).classList.add("mytd2"); }}
+   levelc++;   }
+else if (num != matb[ci][cj] && num<10){  
+   document.getElementById(celid).innerHTML =num;  
+   document.getElementById(celid).style.color="red";}
+}
+function pausing(tim) {
+ if(levelc==81){ clearInterval(timeout); alert('You Finished in: '+(mytime-1)); }
+ if(tim<0){clearTimeout(timeout);  mypause(timer);
+     document.getElementById('pause').classList.add("tdl1"); element1.classList.remove("mytd1"); 
+ }
+ else if(levelc<81){ 
+  document.getElementById("mytime" ).innerHTML=mytime;
+  mytime++;
+  timeout = setTimeout(pausing, 1000);  }
+}
+function mypause(){ timer=-1*timer;
+ 
+ if(timer<0){ document.getElementById('pause').classList.add("tdl1"); clearInterval(timeout); 
+       ttp = setInterval(function() {var ri=parseInt(Math.random()*10)%9;  var rj=parseInt(Math.random()*10)%9;
+ var   rt=parseInt(Math.random()*10)%9;  var tid=ri+""+rj;
+       document.getElementById(tid).innerHTML = myb[rt]; }, 300);}
+ else{ document.getElementById('pause').classList.remove("tdl1"); clearInterval(ttp);  pausing(timer);  
+       for(i=0; i<9; i++){ 
+       for(j=0; j<9; j++){ var cl=i+""+j;  document.getElementById(cl).innerHTML = matx[i][j];}}   } 
+}  
+function mysolve(){ for(i=0; i<9; i++){
+ for(j=0; j<9; j++){ var nid=i+""+j;
+  document.getElementById(nid).innerHTML =matb[i][j]; } 
+}
+}
+function myhint(){  if(start=="true"){tri=0; trj=0;
+ while(matx[tri][trj] !=""){
+ var tri=parseInt(Math.random()*10)%9; var trj=parseInt(Math.random()*10)%9;  
+  mid=tri+""+trj;  var numh=matb[tri][trj];                                                                            
+ } matx[tri][trj]=matb[tri][trj];   
+    matc[numh-1]++;   levelc++; 
+    document.getElementById(mid).innerHTML =matx[tri][trj].toString().fontcolor("#9c33ff");   
+}
+}
+</script>
+</body>
+</html>
